@@ -6,14 +6,13 @@ pipeline {
     stages {
         stage('cloning') {
             steps {
-                git branch: "main", url: "https://github.com/Rahul-Palande11/SRE-PATH.git"
+                cloning ("https://github.com/Rahul-Palande11/SRE-PATH.git","main")
             }
         }
 
         stage('build') {
             steps {
-                
-                call()
+                build ()
             }
         }
     }
