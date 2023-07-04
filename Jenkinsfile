@@ -1,12 +1,23 @@
 @Library("library") _
 
-node {
+pipeline {
+    agent any
+    
+    stages {
         stage('cloning') {
-                cloning ("https://github.com/Rahul-Palande11/SRE-PATH.git","main")
+            steps {
+                script {
+                    cloning("https://github.com/Rahul-Palande11/SRE-PATH.git", "main")
+                }
+            }
         }
 
         stage('build') {
-                build ()
+            steps {
+                script {
+                    build()
+                }
+            }
         }
     }
-
+}
