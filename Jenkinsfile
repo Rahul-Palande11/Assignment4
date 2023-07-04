@@ -1,17 +1,20 @@
 @Library("library") _
+
 pipeline {
-  agent any 
-      stages {
-          stage('cloning') {
-                steps {
-                      cloning ("https://github.com/Rahul-Palande11/SRE-PATH.git","main")
-                    }                    
-                          }
-        stage('build') {
-                steps {
-                  echo "hhhh"
-                       build ()
-                }
-              }
+    agent any
+
+    stages {
+        stage('cloning') {
+            steps {
+                git branch: "main", url: "https://github.com/Rahul-Palande11/SRE-PATH.git"
+            }
         }
+
+        stage('build') {
+            steps {
+                echo "hhhh"
+                call()
+            }
+        }
+    }
 }
